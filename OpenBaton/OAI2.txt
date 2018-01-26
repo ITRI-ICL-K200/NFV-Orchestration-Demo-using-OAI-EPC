@@ -27,7 +27,7 @@
   ],
   "vnfd":[
     {
-      "name":"iperf-client",
+      "name":"oai-mme",
       "vendor":"FOKUS",
       "version":"1.0",
       "lifecycle_event":[
@@ -88,12 +88,12 @@
           "flavour_key":"m1.small"
         }
       ],
-      "type":"client",
+      "type":"mme",
       "endpoint":"generic",
       "vnfPackageLocation":"https://github.com/OaiTestBase/testInfo.git"
     },
     {
-      "name":"hss-dev",
+      "name":"oai-hss",
       "vendor":"FOKUS",
       "version":"1.0",
       "lifecycle_event":[
@@ -145,7 +145,7 @@
       "vnfPackageLocation":"https://github.com/OaiTestBase/testInfo.git"
     },
     {
-      "name":"spgw-dev",
+      "name":"oai-spgw",
       "vendor":"FOKUS",
       "version":"1.0",
       "lifecycle_event":[
@@ -200,10 +200,10 @@
   "vnf_dependency":[
     {
       "source":{
-        "name":"hss-dev"
+        "name":"oai-hss"
       },
       "target":{
-        "name":"iperf-client"
+        "name":"oai-mme"
       },
       "parameters":[
         "Hss"
@@ -211,10 +211,10 @@
     },
     {
       "source":{
-        "name":"spgw-dev"
+        "name":"oai-spgw"
       },
       "target":{
-        "name":"iperf-client"
+        "name":"oai-mme"
       },
       "parameters":[
         "S11"
