@@ -90,7 +90,7 @@
       ],
       "type":"mme",
       "endpoint":"generic",
-      "vnfPackageLocation":"https://github.com/OaiTestBase/testInfo.git"
+      "vnfPackageLocation":"https://github.com/ITRI-ICL-K200/NFV-Orchestration-Demo-using-OAI-EPC.git"
     },
     {
       "name":"oai-hss",
@@ -142,7 +142,7 @@
       ],
       "type":"hss",
       "endpoint":"generic",
-      "vnfPackageLocation":"https://github.com/OaiTestBase/testInfo.git"
+      "vnfPackageLocation":"https://github.com/ITRI-ICL-K200/NFV-Orchestration-Demo-using-OAI-EPC.git"
     },
     {
       "name":"oai-spgw",
@@ -194,7 +194,7 @@
       ],
       "type":"spgw",
       "endpoint":"generic",
-      "vnfPackageLocation":"https://github.com/OaiTestBase/testInfo.git"
+      "vnfPackageLocation":"https://github.com/ITRI-ICL-K200/NFV-Orchestration-Demo-using-OAI-EPC.git"
     }
   ],
   "vnf_dependency":[
