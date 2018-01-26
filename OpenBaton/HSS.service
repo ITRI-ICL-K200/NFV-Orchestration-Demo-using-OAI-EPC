@@ -1,0 +1,8 @@
+[Unit]
+Description=oai-epc-hss
+
+[Service]
+ExecStart=/root/openair-cn/SCRIPTS/run_hss
+
+[Install]
+WantedBy=multi-user.target
