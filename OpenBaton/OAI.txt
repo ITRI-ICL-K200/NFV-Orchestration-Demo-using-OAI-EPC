@@ -1,5 +1,5 @@
 {
-  "name":"NSD iperf + floatingIPs",
+  "name":"OAI-EPC-NSD",
   "vendor":"FOKUS",
   "version":"1.0",
   "vld":[
