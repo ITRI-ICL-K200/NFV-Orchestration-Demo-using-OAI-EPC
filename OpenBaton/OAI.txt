@@ -1,5 +1,5 @@
 {
-  "name":"NSD iperf + floatingIPs",
+  "name":"OAI-EPC-NSD",
   "vendor":"FOKUS",
   "version":"1.0",
   "vld":[
@@ -34,8 +34,8 @@
         {
           "event":"CONFIGURE",
           "lifecycle_events":[
-            "spgw_config_MmeIP2.sh",
-            "hss_config_Mme2.sh"
+            "spgw_config.sh",
+            "hss_config.sh"
           ]
         },
         {
@@ -90,7 +90,7 @@
       ],
       "type":"mme",
       "endpoint":"generic",
-      "vnfPackageLocation":"https://github.com/OaiTestBase/testInfo.git"
+      "vnfPackageLocation":"https://github.com/ITRI-ICL-K200/NFV-Orchestration-Demo-using-OAI-EPC.git"
     },
     {
       "name":"oai-hss",
@@ -100,7 +100,7 @@
         {
           "event":"INSTANTIATE",
           "lifecycle_events":[
-            "hsstest2.sh"
+            "hss_test.sh"
           ]
         }
       ],
@@ -142,7 +142,7 @@
       ],
       "type":"hss",
       "endpoint":"generic",
-      "vnfPackageLocation":"https://github.com/OaiTestBase/testInfo.git"
+      "vnfPackageLocation":"https://github.com/ITRI-ICL-K200/NFV-Orchestration-Demo-using-OAI-EPC.git"
     },
     {
       "name":"oai-spgw",
@@ -152,7 +152,7 @@
         {
           "event":"INSTANTIATE",
           "lifecycle_events":[
-            "spgwtest2.sh"
+            "spgw_test.sh"
           ]
         }
       ],
@@ -194,7 +194,7 @@
       ],
       "type":"spgw",
       "endpoint":"generic",
-      "vnfPackageLocation":"https://github.com/OaiTestBase/testInfo.git"
+      "vnfPackageLocation":"https://github.com/ITRI-ICL-K200/NFV-Orchestration-Demo-using-OAI-EPC.git"
     }
   ],
   "vnf_dependency":[
