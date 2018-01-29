@@ -3,12 +3,12 @@
 ## OS
 * ubuntu 16.04
 
-## install curl
+## pre install 
 * sudo apt-get install curl
 
 ## install OpenBatonb
-* sh <(curl -s http://get.openbaton.org/bootstrap) release
-* step:
+* install Open Baton: sh <(curl -s http://get.openbaton.org/bootstrap) release
+* install step:
  * 1. 選擇Open Baton NFVO版本，推薦5.1.1 for ubuntu 16.04
  * 2. 選擇RabbitMQ broker IP，此IP必須是VIM中VM能夠PING通的位置
  * 3. 選擇RabbitMQ broker PORT，用預設值即可(15672)
@@ -53,4 +53,74 @@
 * 完成OpenBaton Tutorial: Dummy Network Service Record --> http://openbaton.github.io/documentation/dummy-NSR/
 * 若缺少Test vim driver，到 https://github.com/openbaton/test-plugin 中安裝driver，然後重開機
 * 若執行完上述步驟，看Network Service Records List of NSRs中，若State為ACTIVE 即為成功
-* ![](http://140.96.102.187:8080/redmine/attachments/download/1532/openactive.PNG)
+
+
+# How to install OpenStack by All-in-One
+[OS]
+> 只有 ubuntu 14.04 能正常安裝
+> 若安裝openstack之裝置為非乾淨之環境，可能遇到下列之問題:
+> 請參考: http://140.96.102.187:8080/redmine/issues/3687
+
+[下載壓縮檔]
+> devstack.tgz: https://drive.google.com/open?id=1MZZJuhdvUPH7ZN1xvqR9wASKfFSkJ990
+> stack.tgz: https://drive.google.com/open?id=1YzkrgkZDQFEo8-1sdwIO9gyFDipc-O5G
+
+[切換到root]
+> sudo su
+
+[安裝git]
+> apt-get install git
+> exit -->離開root
+
+[建立stack使用者]
+> 解壓縮devstack.tgz到/home/
+> cd /home/devstack/tools/
+> sudo ./create-stack-user.sh
+
+[編輯stack用戶權限]
+> sudo vi /etc/sudoers
+> 內容如下:
+> \# User privilege specification
+> root ALL=(ALL:ALL) ALL
+> stack ALL=(ALL:ALL) ALL
+
+[修改/home/devstack權限]
+> sudo su
+> chown –R stack:stack /home/devstack
+> chown –R stack:stack /opt/stack
+
+[切換user到stack]
+> su stack
+> vi /home/devstack/local.conf
+> 修改內容如下:
+> > HOST_IP=對外的IP(能連到INTERNET的IP，EX:10.101.136.44)
+> > FLOATING_RANGE=改成欲要分配給VM的IP網段(EX:"10.101.136.0/24")
+> > Q_FLOATING_ALLOCATION_POOL=改成欲要分配給VM的IP區間(EX:start=10.101.136.120,end=10.101.136.134)
+> > PUBLIC_NETWORK_GATEWAY=對外的IP的GATEWAY(EX:"10.101.136.254")
+> > PUBLIC_INTERFACE=OpenStack對外的網卡
+
+[安裝OpenStack]
+> *此時使用者為stack，若不是stack執行su stack
+> 1. 解壓所stack.tgz到/opt/
+> 2. cd /home/devstack
+> 3. ./stack.sh (這次安裝會失敗)
+> 4. 遇到ERROR
+> 　4.1 vim /usr/local/lib/python2.7/dist-packages/openstack/session.py
+> 　4.2 去掉DEFAULT_USER_AGENT = "openstacksdk/%s" % openstack.__version__後面的.__version__
+> 　4.3 移除OpenStack
+> 5. ./stack.sh (這次能成功安裝)
+> 6. 修正VNC不正常(當OpenStack UI上的雲實例中的主控台無法使用時，需執行以下指令修正)
+> 　6.1 cd /opt/stack/noVNC
+> 　6.2 git checkout v0.6.0
+> *此後每次重開機都要執行./stack.sh，OpenStack才會啟動，且使用者為stack
+
+
+[移除OpenStack]
+> cd /home/devstack
+> ./unstack.sh
+
+[取得OpenStack tokens]
+> curl -d '{"auth":{"passwordCredentials":{"username": "__YOUR_USER_NAME__", "password": "__YOUR_PASSWORD__"},"tenantName": "__YUOR_TENANT_NAME__"}}' -H "Content-Type: application/json" http://__YOUR_OPENSTACK_IP_ADRESS__:5000/v2.0/tokens
+
+
+
