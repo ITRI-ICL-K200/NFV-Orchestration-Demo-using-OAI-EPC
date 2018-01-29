@@ -13,15 +13,15 @@ S1_UInterface=`ifconfig | grep -B1 "inet addr:${public}" | awk '$1!="inet" && $1
 S11Interface=`ifconfig | grep -B1 "inet addr:${S11}" | awk '$1!="inet" && $1!="--" {print $1}'`
 
 #config files
-sudo sed -i "s/__SPGW_SGi_INTERFACE__/${SGiInterface}/" /opt/openbaton/scripts/spgw.conf
-sudo sed -i "s/__SPGW_S1U_IP__/${public}/" /opt/openbaton/scripts/spgw.conf
-sudo sed -i "s/__SPGW_S1U_INTERFACE__/${S1_UInterface}/" /opt/openbaton/scripts/spgw.conf
-sudo sed -i "s/__SPGW_S11_IP__/${S11}/" /opt/openbaton/scripts/spgw.conf
-sudo sed -i "s/__SPGW_S11_INTERFACE__/${S11Interface}/" /opt/openbaton/scripts/spgw.conf
+sudo sed -i "s/__SPGW_SGi_INTERFACE__/${SGiInterface}/" /opt/openbaton/scripts/OpenBaton/scripts/spgw.conf
+sudo sed -i "s/__SPGW_S1U_IP__/${public}/" /opt/openbaton/scripts/OpenBaton/scripts/spgw.conf
+sudo sed -i "s/__SPGW_S1U_INTERFACE__/${S1_UInterface}/" /opt/openbaton/scripts/OpenBaton/scripts/spgw.conf
+sudo sed -i "s/__SPGW_S11_IP__/${S11}/" /opt/openbaton/scripts/OpenBaton/scripts/spgw.conf
+sudo sed -i "s/__SPGW_S11_INTERFACE__/${S11Interface}/" /opt/openbaton/scripts/OpenBaton/scripts/spgw.conf
 
 #copy files
-sudo cp /opt/openbaton/scripts/spgw.conf /usr/local/etc/oai
-sudo cp /opt/openbaton/scripts/SPGW.service /etc/systemd/system
+sudo cp /opt/openbaton/scripts/OpenBaton/scripts/spgw.conf /usr/local/etc/oai
+sudo cp /opt/openbaton/scripts/OpenBaton/scripts/SPGW.service /etc/systemd/system
 
 #run spgw
 sudo service SPGW start
