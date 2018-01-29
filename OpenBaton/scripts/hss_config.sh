@@ -2,12 +2,12 @@
 # config hss ip for mme
 #mod mme.conf
 #S1 ip on mme
-sudo sed -i "s/__HSS_PRIVATE_IP__/${hss_Hss}/" /opt/openbaton/scripts/mme_fd.conf
+sudo sed -i "s/__HSS_PRIVATE_IP__/${hss_Hss}/" /opt/openbaton/scripts/OpenBaton/scripts/mme_fd.conf
 
 #copy files
-sudo cp /opt/openbaton/scripts/mme.conf /usr/local/etc/oai
-sudo cp /opt/openbaton/scripts/mme_fd.conf /usr/local/etc/oai/freeDiameter
-sudo cp /opt/openbaton/scripts/MME.service /etc/systemd/system
+sudo cp /opt/openbaton/scripts/OpenBaton/scripts/mme.conf /usr/local/etc/oai
+sudo cp /opt/openbaton/scripts/OpenBaton/scripts/mme_fd.conf /usr/local/etc/oai/freeDiameter
+sudo cp /opt/openbaton/scripts/OpenBaton/scripts/MME.service /etc/systemd/system
 
 #change host name
 ORGHNAME=`cat /etc/hostname`

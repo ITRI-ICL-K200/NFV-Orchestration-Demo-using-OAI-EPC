@@ -34,14 +34,14 @@
         {
           "event":"CONFIGURE",
           "lifecycle_events":[
-            "spgw_config.sh",
-            "hss_config.sh"
+            "OpenBaton/scripts/spgw_config.sh",
+            "OpenBaton/scripts/hss_config.sh"
           ]
         },
         {
           "event":"INSTANTIATE",
           "lifecycle_events":[
-            "install.sh"
+            "OpenBaton/scripts/mme_install.sh"
           ]
         }
       ],
@@ -100,7 +100,7 @@
         {
           "event":"INSTANTIATE",
           "lifecycle_events":[
-            "hss_test.sh"
+            "OpenBaton/scripts/hss_test.sh"
           ]
         }
       ],
@@ -152,7 +152,7 @@
         {
           "event":"INSTANTIATE",
           "lifecycle_events":[
-            "spgw_test.sh"
+            "OpenBaton/scripts/spgw_test.sh"
           ]
         }
       ],
