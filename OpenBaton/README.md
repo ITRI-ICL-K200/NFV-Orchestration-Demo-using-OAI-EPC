@@ -58,8 +58,6 @@
 # How to install OpenStack by All-in-One
 [OS]
 > 只有 ubuntu 14.04 能正常安裝
-> 若安裝openstack之裝置為非乾淨之環境，可能遇到下列之問題:
-> 請參考: http://140.96.102.187:8080/redmine/issues/3687
 
 [下載壓縮檔]
 > devstack.tgz: https://drive.google.com/open?id=1MZZJuhdvUPH7ZN1xvqR9wASKfFSkJ990
