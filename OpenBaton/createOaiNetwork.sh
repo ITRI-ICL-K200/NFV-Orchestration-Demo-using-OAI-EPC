@@ -80,8 +80,8 @@ Token=`echo $TokenResult | awk -F'"' '{ print $4 }'`
 S11TestCidr="10.99.1.0/24"
 HssTestCidr="10.99.2.0/24"
 
-#for NetName in "S11" "Hss"
-for NetName in "S11Test" "HssTest"
+for NetName in "S11" "Hss"
+#for NetName in "S11Test" "HssTest"
 do
 
     CreateNet1=`echo "curl -s http://$OPENSTACK_IP:9696/v2.0/networks -X POST -H \"Content-Type: application/json\" -H \"Accept: application/json\" -H \"X-Auth-Token: $Token\" -d '{\"network\": {\"name\": \"$NetName\"}}'"`
