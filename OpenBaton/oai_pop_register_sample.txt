@@ -1,0 +1,17 @@
+{
+ "name":"vim",
+ "authUrl":"http://your vim ip:5000/v2.0",
+ "tenant":"your tenant-name",
+ "username":"your username",
+ "password":"your password",
+ "keyPair":"your keypair",
+ "securityGroups": [
+   "default"
+ ],
+ "type":"openstack",
+ "location":{
+   "name":"ICL.ITRI",
+   "latitude":"53.123",
+   "longitude":"14.456"
+ }
+}
