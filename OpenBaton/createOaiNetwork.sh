@@ -77,8 +77,8 @@ Token=`echo $TokenResult | awk -F'"' '{ print $4 }'`
 
 ##create network : S11, Hss
 
-S11TestCidr="10.99.1.0/24"
-HssTestCidr="10.99.2.0/24"
+S11Cidr="10.99.1.0/24"
+HssCidr="10.99.2.0/24"
 
 for NetName in "S11" "Hss"
 #for NetName in "S11Test" "HssTest"
