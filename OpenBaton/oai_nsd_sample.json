@@ -27,7 +27,7 @@
   ],
   "vnfd":[
     {
-      "name":"oai-mme",
+      "name":"oai-mme",
       "vendor":"FOKUS",
       "version":"1.0",
       "lifecycle_event":[
@@ -93,7 +93,7 @@
       "vnfPackageLocation":"https://github.com/ITRI-ICL-K200/NFV-Orchestration-Demo-using-OAI-EPC.git"
     },
     {
-      "name":"oai-hss",
+      "name":"oai-hss",
       "vendor":"FOKUS",
       "version":"1.0",
       "lifecycle_event":[
@@ -200,7 +200,7 @@
   "vnf_dependency":[
     {
       "source":{
-        "name":"oai-hss"
+      "name":"oai-hss"
       },
       "target":{
         "name":"oai-mme"
