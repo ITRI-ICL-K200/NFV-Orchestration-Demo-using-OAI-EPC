@@ -4,7 +4,6 @@
  "tenant":"your tenant-name",
  "username":"your username",
  "password":"your password",
- "keyPair":"your keypair",
  "securityGroups": [
    "default"
  ],
