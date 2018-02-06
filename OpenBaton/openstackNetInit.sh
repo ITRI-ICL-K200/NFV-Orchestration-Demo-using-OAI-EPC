@@ -4,7 +4,7 @@
 export OS_USERNAME=demo
 export OS_PASSWORD=pass
 export OS_TENANT_NAME=demo
-export OS_AUTH_URL=http://10.101.136.41:35357/v2.0
+export OS_AUTH_URL=http://127.0.0.1:35357/v2.0
 
 # clear router's gateway
 neutron router-gateway-clear router1
@@ -25,3 +25,6 @@ export OS_TENANT_NAME=admin
 
 # delete ipv6 subnet of network "public"
 neutron subnet-delete ipv6-public-subnet
+
+# add dns in subnet "public-subnet" and enable dhcp
+neutron subnet-update public-subnet --dns-nameserver 8.8.8.8 --enable-dhcp
