@@ -57,11 +57,8 @@ def main():#argv=sys.argv[1:]):
         args = parser.parse_args()
         yaml_str = args.yaml_cfg_file.read()
         yaml_cfg = yaml.load(yaml_str)
-        curl_fmt = 'echo "{data}" > /home/k200/result.txt'
-        result  =  curl_fmt.format(data=yaml_cfg)
-        ssh(result,"140.96.102.29", "k200", "k200user")
         add_GW = 'sudo route add default gw 10.101.136.254'
-        clone = 'git clone https://github.com/OaiTestBase/testInfo.git'
+        clone = 'git clone https://github.com/ITRI-ICL-K200/NFV-Orchestration-Demo-using-OAI-EPC.git'
         s11_IP = ''
         hss_IP = ''
 
@@ -78,12 +75,12 @@ def main():#argv=sys.argv[1:]):
             if 'HSS' in vnfr['name']:
                 hss_IP = get_cp_ip('connection-point-2')
                 # run HSS script
-                run_script= 'sh ~/testInfo/test/HSS_config.sh'
+                run_script= 'sh ~/NFV-Orchestration-Demo-using-OAI-EPC/OpenSourceMANO/scripts/HSS_config.sh'
                 ssh(run_script,mgmt_ip, "ubuntu",'none')
             if 'SPGW' in vnfr['name']:
                 s11_IP = get_cp_ip('connection-point-2')
                 # run spgw script
-                tmp_script = 'sh ~/testInfo/test/spgw_config.sh {public_IP} {S11_IP}'
+                tmp_script = 'sh ~/NFV-Orchestration-Demo-using-OAI-EPC/OpenSourceMANO/scripts/spgw_config.sh {public_IP} {S11_IP}'
                 run_script  = tmp_script.format(public_IP=mgmt_ip, S11_IP=s11_IP)
                 ssh(run_script,mgmt_ip, "ubuntu",'none')
                 # run script
@@ -97,7 +94,7 @@ def main():#argv=sys.argv[1:]):
                 # run MME script
                 mgmt_ip = vnfr['mgmt_ip_address']
                 mme_s11_IP = get_cp_ip('connection-point-2')
-                tmp_script = 'sh ~/testInfo/test/MME_config.sh {public_IP} {S11_IP} {spgw_IP} {hss_IP}'
+                tmp_script = 'sh ~/NFV-Orchestration-Demo-using-OAI-EPC/OpenSourceMANO/scripts/MME_config.sh {public_IP} {S11_IP} {spgw_IP} {hss_IP}'
                 run_script  = tmp_script.format(public_IP=mgmt_ip, S11_IP=mme_s11_IP, hss_IP=hss_IP, spgw_IP=s11_IP)
                 ssh(run_script,mgmt_ip, "ubuntu",'none')
                 # run script
