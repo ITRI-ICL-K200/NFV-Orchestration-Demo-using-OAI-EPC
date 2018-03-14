@@ -16,24 +16,24 @@ S11Interface=`ifconfig | grep -B1 "inet addr:$2" | awk '$1!="inet" && $1!="--" {
 
 #mod mme.conf
 #S1 ip on mme
-sudo sed -i "s/__MME_S1_C_IP__/$1/" ~/testInfo/test/mme.conf
+sudo sed -i "s/__MME_S1_C_IP__/$1/" ~/NFV-Orchestration-Demo-using-OAI-EPC/OpenSourceMANO/scripts/mme.conf
 #S1 interface on mme
-sudo sed -i "s/__MME_S1_C_INTERFACE__/${S1Interface}/" ~/testInfo/test/mme.conf
+sudo sed -i "s/__MME_S1_C_INTERFACE__/${S1Interface}/" ~/NFV-Orchestration-Demo-using-OAI-EPC/OpenSourceMANO/scripts/mme.conf
 
 #S11 ip on mme
-sudo sed -i "s/__MME_S11_C_IP__/$2/" ~/testInfo/test/mme.conf
+sudo sed -i "s/__MME_S11_C_IP__/$2/" ~/NFV-Orchestration-Demo-using-OAI-EPC/OpenSourceMANO/scripts/mme.conf
 #S11 interface on mme
-sudo sed -i "s/__MME_S11_C_INTERFACE__/${S11Interface}/" ~/testInfo/test/mme.conf
+sudo sed -i "s/__MME_S11_C_INTERFACE__/${S11Interface}/" ~/NFV-Orchestration-Demo-using-OAI-EPC/OpenSourceMANO/scripts/mme.conf
  
 #SPGW ip on spgw
-sudo sed -i "s/SPGW_PRIVATE_IP/$3/" ~/testInfo/test/mme.conf
+sudo sed -i "s/SPGW_PRIVATE_IP/$3/" ~/NFV-Orchestration-Demo-using-OAI-EPC/OpenSourceMANO/scripts/mme.conf
 
-sudo sed -i "s/__HSS_PRIVATE_IP__/$4/" ~/testInfo/test/mme_fd.conf
+sudo sed -i "s/__HSS_PRIVATE_IP__/$4/" ~/NFV-Orchestration-Demo-using-OAI-EPC/OpenSourceMANO/scripts/mme_fd.conf
 
 #copy files
-sudo cp ~/testInfo/test/mme.conf /usr/local/etc/oai
-sudo cp ~/testInfo/test/mme_fd.conf /usr/local/etc/oai/freeDiameter
-sudo cp ~/testInfo/test/MME.service /etc/systemd/system
+sudo cp ~/NFV-Orchestration-Demo-using-OAI-EPC/OpenSourceMANO/scripts/mme.conf /usr/local/etc/oai
+sudo cp ~/NFV-Orchestration-Demo-using-OAI-EPC/OpenSourceMANO/scripts/mme_fd.conf /usr/local/etc/oai/freeDiameter
+sudo cp ~/NFV-Orchestration-Demo-using-OAI-EPC/OpenSourceMANO/scripts/MME.service /etc/systemd/system
 
 sudo apt-get update 
 sudo apt-get install -y nmap
